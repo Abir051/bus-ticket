@@ -44,9 +44,36 @@ function updateSeatPrice(value) {
 }
 
 
-function upadeGrandTotal (){
+function updateGrandTotal(status) {
+
+
     const seatPrice = getConvertedValue("total-price");
-    document.getElementById("grand-total").innerText = seatPrice;
+
+    if (status == undefined) {
+        document.getElementById("grand-total").innerText = seatPrice;
+
+    }
+    else {
+        const couponCode = document.getElementById("coupon").value;
+
+
+        if (couponCode == "NEW15") {
+            const discountedPrice = seatPrice * 0.15;
+            document.getElementById("grand-total").innerText = seatPrice - discountedPrice;
+
+        }
+        else if (couponCode == "Couple 20") {
+            const discountedPrice = seatPrice * 0.2;
+            document.getElementById("grand-total").innerText = seatPrice - discountedPrice;
+
+        }
+
+        else {
+            alert("Please enter a valid coupon Code");
+        }
+
+    }
+
 }
 
 
