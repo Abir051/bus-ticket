@@ -11,7 +11,7 @@ for (const btn of allBtn) {
         const div = document.createElement("div");
         div.classList.add("flex");
         div.classList.add("justify-around");
-        div.classList.add("py-4");
+        div.classList.add("py-2");
         const p1 = document.createElement("p");
         const p2 = document.createElement("p");
         const p3 = document.createElement("p");
@@ -25,6 +25,7 @@ for (const btn of allBtn) {
         div.appendChild(p3)
         selectedContainer.appendChild(div);
         updateSeatPrice(price);
+        upadeGrandTotal()
     });
 }
 
@@ -40,6 +41,12 @@ function updateSeatPrice(value) {
     const seatPrice = getConvertedValue("total-price");
     const sum = seatPrice + parseInt(value);
     document.getElementById("total-price").innerText = sum;
+}
+
+
+function upadeGrandTotal (){
+    const seatPrice = getConvertedValue("total-price");
+    document.getElementById("grand-total").innerText = seatPrice;
 }
 
 
