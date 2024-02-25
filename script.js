@@ -3,9 +3,22 @@ const category = "Economy"
 
 const allBtn = document.getElementsByClassName("all-btn");
 
+
+
+
+
 for (const btn of allBtn) {
     btn.addEventListener("click", function (event) {
         const seat = event.target.parentNode.childNodes[1].innerText;
+
+
+
+        const cartCount = getConvertedValue("cart");
+        document.getElementById("cart").innerText = cartCount + 1;
+
+        const leftSeat = getConvertedValue("left-seat");
+        document.getElementById("left-seat").innerText = leftSeat - 1;
+
 
         const selectedContainer = document.getElementById("seat-cart");
         const div = document.createElement("div");
@@ -73,6 +86,7 @@ function updateGrandTotal(status) {
         }
 
     }
+
 
 }
 
