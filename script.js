@@ -11,7 +11,11 @@ for (const btn of allBtn) {
     btn.addEventListener("click", function (event) {
         const seat = event.target.parentNode.childNodes[1].innerText;
 
-
+      const cartLimit = getConvertedValue("cart");
+      if(cartLimit+1>4){
+        alert("Limit Reached");
+        return;
+      }
 
         const cartCount = getConvertedValue("cart");
         document.getElementById("cart").innerText = cartCount + 1;
