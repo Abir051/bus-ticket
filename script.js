@@ -1,21 +1,25 @@
-const price = 550;
-const category = "Economy"
-
 const allBtn = document.getElementsByClassName("all-btn");
-
-
-
 
 
 for (const btn of allBtn) {
     btn.addEventListener("click", function (event) {
         const seat = event.target.parentNode.childNodes[1].innerText;
 
-      const cartLimit = getConvertedValue("cart");
-      if(cartLimit+1>4){
-        alert("Limit Reached");
-        return;
-      }
+        const price = 550;
+        const category = "Economy"
+
+        
+
+        
+
+
+        const cartLimit = getConvertedValue("cart");
+        if (cartLimit + 1 > 4) {
+            alert("Limit Reached");
+            return;
+        }
+        event.target.setAttribute("disabled",false)
+        event.target.parentNode.childNodes[1].style.backgroundColor = "#1DD100";
 
         const cartCount = getConvertedValue("cart");
         document.getElementById("cart").innerText = cartCount + 1;
@@ -52,32 +56,32 @@ function updateSeatPrice(value) {
     document.getElementById("total-price").innerText = sum;
 }
 
-function upadeGrandTotal (applied){
+function upadeGrandTotal(applied) {
     const seatPrice = getConvertedValue("total-price");
 
     if (applied == undefined) {
-                document.getElementById("grand-total").innerText = seatPrice;
-        
-            }
-            else {
-                const coupon= document.getElementById("coupon-code").value;
-        
-            
-                if (coupon == "NEW15") {
-                    const discountedPrice = seatPrice * 0.15;
-                    document.getElementById("grand-total").innerText = seatPrice - discountedPrice;
-        
-                }
-                else if (coupon == "Couple 20") {
-                    const discountedPrice = seatPrice * 0.2;
-                    document.getElementById("grand-total").innerText = seatPrice - discountedPrice;
-        
-                }
-        
-                else {
-                    alert("Please enter a valid coupon Code");
-                }
-            }
+        document.getElementById("grand-total").innerText = seatPrice;
+
+    }
+    else {
+        const coupon = document.getElementById("coupon-code").value;
+
+
+        if (coupon == "NEW15") {
+            const discountedPrice = seatPrice * 0.15;
+            document.getElementById("grand-total").innerText = seatPrice - discountedPrice;
+
+        }
+        else if (coupon == "Couple 20") {
+            const discountedPrice = seatPrice * 0.2;
+            document.getElementById("grand-total").innerText = seatPrice - discountedPrice;
+
+        }
+
+        else {
+            alert("Please enter a valid coupon Code");
+        }
+    }
 }
 function getConvertedValue(id) {
     const allSeat = document.getElementById(id).innerText;
